@@ -1,0 +1,36 @@
+.container{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card{
+	width: 50%;
+	padding:1rem 0rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0px 0px 4px 0px #ccc;
+}
+.header{
+	margin: 1rem 0rem;
+	font-size: 1.5rem;
+	font-weight: bolder;
+}
+.input_wrapper{
+	margin: 1rem 0rem;
+}
+.input{
+	border: none;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border-bottom: 1px solid #ccc;
+}
+.btn{
+	border: 1px solid #000;
+	background: none;
+	font-size: 1.3rem;
+	font-weight: bold;
+	padding: 0.5rem 1rem;
+}

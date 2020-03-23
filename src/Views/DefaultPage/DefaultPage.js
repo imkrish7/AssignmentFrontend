@@ -11,9 +11,11 @@ class DefaultPage extends Component{
 	render(){
 		return <div className={Style.container}>
 				<div className={Style.action}>
+					<Link to="/login">
 					<button className={[Style.btn, Style.orange].join(' ')}>
-						<Link to="/login">Sign In</Link>
+						Sign In
 					</button>
+					</Link>
 				</div>
 				<div className={Style.action}>
 					<Link to="/registration">
