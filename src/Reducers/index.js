@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
-import { loginResponse } from './userReducer';
+import { loginResponse, registerResponse, forgetPasswordOtpResponse, forgetPasswordOtpVerifyResponse, forgetPasswordResponse, verifyResponse } from './userReducer';
 
 const rootReducers = combineReducers({
-	loginResponse
+	loginResponse,
+	forgetPasswordOtpResponse,
+	forgetPasswordOtpVerifyResponse,
+	forgetPasswordResponse,
+	registerResponse,
+	verifyResponse
 })
 
 export default rootReducers;

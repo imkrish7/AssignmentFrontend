@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
+import { connect }  from 'react-redux';
 import { getLogin } from '../../Actions/userActions'
 import Style from '../../Styles/form.module.scss';
 class Login extends Component {
@@ -72,6 +72,7 @@ class Login extends Component {
 							</div>
 						</form>
 					</div>
+					<div className=""><Link to="/forget_password"><button>Forget Password</button></Link></div>
 				</div>
 			</div>
 		);

@@ -5,6 +5,8 @@ import Registration from './Views/Registration/Registration';
 import Login from './Views/Login/Login';
 import Verify from './Views/Verify/Verify';
 import ForgetPassword from './Views/Forget Password/ForgetPassword';
+import ForgetPasswordOTP from './Views/ForgetPasswordOTP/ForgetPasswordOTP';
+import ResetPassword from './Views/ResetPassword/ResetPassword';
 import DefaultLayout from './Container/DefaultLayout'
 
 const isAuthenticated = ()=>{
@@ -25,6 +27,8 @@ function App() {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/verify" component={Verify} />
 				<Route exact path="/forget_password" component={ForgetPassword} />
+				<Route exact path="/forget_password_otp" component={ForgetPasswordOTP} />
+				<Route exact path="/reset_password" component={ResetPassword} />
 				<PrivateRoute exact path="/dashboard" component={DefaultLayout} />
 			</Switch>
 		</Router>;

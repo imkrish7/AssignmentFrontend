@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getRegister } from '../../Actions/userActions';
 import Style from '../../Styles/form.module.scss';
 class Registration extends Component{
 
@@ -22,7 +24,15 @@ class Registration extends Component{
 
 	handleSubmit = (e)=>{
 		e.preventDefault();
+		const  params = {
+			email: this.state.email,
+			name: this.state.name,
+			password: this.state.password,
+			countryCode: this.state.countryCode,
+			phoneNumber: this.state.phoneNumber
+		}
 
+		this.props.getRegister(params);
 	}
 
 	render(){
@@ -38,7 +48,7 @@ class Registration extends Component{
 								</label>
 							</div>
 							<div className={Style.input_wrapper}>
-								<input type="text" required value={this.state.email} name="email" onChange={this.handleChange} className={Style.input} />
+								<input type="email" required value={this.state.email} name="email" onChange={this.handleChange} className={Style.input} />
 								<label className={Style.label}>
 									<span className={Style.label_text}>Email</span>
 								</label>
@@ -56,8 +66,7 @@ class Registration extends Component{
 								</label>
 							</div>
 							<div className={Style.input_wrapper}>
-								<input type="password
-								" required value={this.state.password} name="password" onChange={this.handleChange} className={Style.input} />
+								<input type="password" required value={this.state.password} name="password" onChange={this.handleChange} className={Style.input} />
 								<label className={Style.label}>
 									<span className={Style.label_text}>Password</span>
 								</label>
@@ -72,4 +81,16 @@ class Registration extends Component{
 	}
 }
 
-export default Registration;
+const mapStateToProps = state => {
+	return{ 
+		userRegisterResponse: state.registerResponse 
+	}
+} 
+
+const mapDispatchToProps = dispatch =>{
+	return{
+		getRegister: params => dispatch(getRegister(params))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);

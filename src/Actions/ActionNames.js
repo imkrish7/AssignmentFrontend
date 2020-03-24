@@ -1,1 +1,6 @@
 export const LOGIN = 'LOGIN';
+export const FORGET_PASSWORD_OTP = 'FORGET_PASSWORD_OTP';
+export const FORGET_PASSWORD_OTP_VERIFY = 'FORGET_PASSWORD_OTP_VERIFY';
+export const FORGET_PASSWORD = 'FORGET_PASSWORD';
+export const REGISTER = 'REGISTER';
+export const VERIFY = 'VERIFY';
