@@ -5,7 +5,7 @@
 	justify-content: center;
 	align-items: center;
 	background-color: #fff;
-	color: #fff;
+	color: #000;
 }
 
 .card{
@@ -17,11 +17,14 @@
 }
 
 
+.warning{
+	margin: 1rem 0rem;
+}
 
 .header{
 	font-size: 2rem;
 	font-weight: bold;
-	color: #e74c3c;
+	color: #000000;
 }
 
 .form_wrapper{
@@ -40,7 +43,7 @@
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
-	color: #e74c3c;
+	color: #000000;
 }
 
 .label::after{
@@ -50,7 +53,7 @@
 	bottom: -1px;
 	width: 100%;
 	height: 100%;
-	border-bottom: 3px solid #e74c3c;
+	border-bottom: 3px solid #000000;
 	transform: translateX(-100%);
 	transition: all 0.3s ease;
 }
@@ -59,7 +62,7 @@
 	font-size: 1.5rem;
 	bottom: 5px;
 	left: 0px;
-	color: #e74c3c;
+	color: #000;
 	transition: all 0.3s ease;
 }
 .input{
@@ -70,8 +73,8 @@
 	background: transparent;
 	padding-top: 20px;
 	outline: none;
-	color: #e74c3c;
-	border-bottom: 1px solid #e74c3c;
+	color: #000;
+	border-bottom: 1px solid #ccc;
 }
 
 .input:focus + .label .label_text, .input:valid + .label .label_text{
@@ -88,8 +91,18 @@
 .btn{
 	border: none;
 	padding: 0.5rem 1rem;
-	background-color: #e74c3c;
-	color: #fff;
+	background: #fff;
+	border: 1px solid #000;
+	color: #000;;
 	font-size: 1.3rem;
 	font-weight: bold;
+}
+
+.btn_forget{
+	border: 1px solid #000;
+	font-size: 1.4rem;
+	padding: 0.5rem 1rem;
+	font-weight: bolder;
+	background: none;
+	cursor: pointer;
 }

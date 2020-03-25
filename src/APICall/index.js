@@ -23,7 +23,7 @@ export const networkRequest = { post: (dispatch, url, params, successAction, loa
 					})
 					.catch(error => {
 						if (dispatch && errorAction) {
-							dispatch(errorAction(error));
+							dispatch(errorAction(error.response.data));
 						}
 					});
 			},

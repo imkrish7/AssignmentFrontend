@@ -6,8 +6,8 @@ import Login from './Views/Login/Login';
 import Verify from './Views/Verify/Verify';
 import ForgetPassword from './Views/Forget Password/ForgetPassword';
 import ForgetPasswordOTP from './Views/ForgetPasswordOTP/ForgetPasswordOTP';
-import ResetPassword from './Views/ResetPassword/ResetPassword';
-import DefaultLayout from './Container/DefaultLayout'
+import DefaultLayout from './Container/DefaultLayout';
+import ResendOTP from './Views/ResendOTP/ResendOTP';
 
 const isAuthenticated = ()=>{
 	return localStorage.getItem('Authorization') ? true : false;
@@ -15,7 +15,7 @@ const isAuthenticated = ()=>{
 
 const PrivateRoute = ({ component: Component, ...rest})=>{
 
-return<Route {...rest} render={props=> isAuthenticated() ? (<Component {...props} />): <Redirect to={{ pathname:"/",  state: { from: props.location}}} />} />;
+return <Route {...rest} render={props=> isAuthenticated() ? (<Component {...props} />): <Redirect to={{ pathname:"/home",  state: { from: props.location}}} />} />;
 }
 
 
@@ -23,13 +23,13 @@ function App() {
   return <Router>
 			<Switch>
 				<Route exact path="/" component={Default} />
-				<Route exact path="/registration" component={Registration} />
+				<Route exact path="/register" component={Registration} />
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/verify" component={Verify} />
 				<Route exact path="/forget_password" component={ForgetPassword} />
 				<Route exact path="/forget_password_otp" component={ForgetPasswordOTP} />
-				<Route exact path="/reset_password" component={ResetPassword} />
-				<PrivateRoute exact path="/dashboard" component={DefaultLayout} />
+				<Route exact path="/resend_otp" component={ResendOTP} />
+				<PrivateRoute path="/" component={DefaultLayout} />
 			</Switch>
 		</Router>;
 }
