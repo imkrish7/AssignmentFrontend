@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getForgetPasswordOtp } from '../../Actions/userActions';
 import Style from '../../Styles/forget_password.module.scss';
@@ -25,24 +26,35 @@ class ForgetPasswordOTP extends Component{
 		}
 		this.props.getForgetPasswordOtp(params);
 	}
+	back = ()=>{
+		window.location.reload();
+	}
 	render(){
-		return(
-			<div className={Style.container}>
+		return <div className={Style.container}>
 				<div className={Style.card}>
 					<div className={Style.header}>Forget Password</div>
 					<div className={Style.form_wrapper}>
-						<form onSubmit={this.handleSubmit}>
-							<div className={Style.input_wrapper}>
-								<input required type="email" value={this.state.email} onChange={this.handleChange} name="email" placeholder="Enter your email" className={Style.input}></input>
-							</div>
-							<div className={Style.btn_wrapper}>
-								<button className={Style.btn}>Submit</button>
-							</div>
-						</form>
-					</div>  
+						{this.props.forgetPasswordOtpResponse.data && this.props.forgetPasswordOtpResponse.data.success ? <React.Fragment>
+									<h1>Please Check your mail</h1>
+									<Link to="/login">
+										<button className={Style.btn}>Login</button>
+									</Link>
+								</React.Fragment> : this.props.forgetPasswordOtpResponse.error && !this.props.forgetPasswordOtpResponse.error.success ? <React.Fragment>
+										<h1>
+											{this.props.forgetPasswordOtpResponse.error && this.props.forgetPasswordOtpResponse.error.msg}
+										</h1>
+										<button onClick={this.back} className={Style.btn}>Back</button>
+									</React.Fragment> : <form onSubmit={this.handleSubmit}>
+										<div className={Style.input_wrapper}>
+											<input required type="email" value={this.state.email} onChange={this.handleChange} name="email" placeholder="Enter your email" className={Style.input} />
+										</div>
+										<div className={Style.btn_wrapper}>
+											<button className={Style.btn}>Submit</button>
+										</div>
+									</form>}
+					</div>
 				</div>
-			</div>
-		)
+			</div>;
 	}
 }
 

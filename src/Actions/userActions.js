@@ -1,6 +1,6 @@
 import { getActionStates } from '../Utils/reduxUtility'; 
 import { networkRequest } from '../APICall/index';
-import { LOGIN, VERIFY,FORGET_PASSWORD_OTP, FORGET_PASSWORD_OTP_VERIFY, FORGET_PASSWORD, REGISTER } from './ActionNames';
+import { LOGIN, VERIFY, FORGET_PASSWORD_OTP, FORGET_PASSWORD_OTP_VERIFY, FORGET_PASSWORD, REGISTER , RESEND_OTP, RESET_PASSWORD} from './ActionNames';
 
 export const loginSuccess= (data)=>{
 	return{ 
@@ -156,4 +156,56 @@ export const verifyLoading = (isLoading)=>{
 export const getVerify = (params)=>{
 	const url = 'verify';
 	return dispatch => networkRequest.patch(dispatch, url, params, verifySuccess, verifyLoading, verifyErrored);
+}
+
+export const resendOTPSuccess= (data)=>{
+	return{ 
+		type: getActionStates(RESEND_OTP).success,
+		data
+	}
+}
+
+export const resendOTPErrored = (error)=>{
+	return{ 
+		type: getActionStates(RESEND_OTP).failure,
+		error
+	}
+}
+
+export const resendOTPLoading = (isLoading)=>{
+	return{
+		type: getActionStates(RESEND_OTP).inProgress,
+		isLoading
+	}
+}
+
+export const getResendOTP = (params)=>{
+	const url = 'resend_otp';
+	return dispatch => networkRequest.patch(dispatch, url, params, resendOTPSuccess, resendOTPLoading, resendOTPErrored);
+}
+
+export const resetPasswordSuccess= (data)=>{
+	return{ 
+		type: getActionStates(RESET_PASSWORD).success,
+		data
+	}
+}
+
+export const resetPasswordErrored = (error)=>{
+	return{ 
+		type: getActionStates(RESET_PASSWORD).failure,
+		error
+	}
+}
+
+export const resetPasswordLoading = (isLoading)=>{
+	return{
+		type: getActionStates(RESET_PASSWORD).inProgress,
+		isLoading
+	}
+}
+
+export const getResetPassword = (params)=>{
+	const url = 'resetPassword';
+	return dispatch => networkRequest.patch(dispatch, url, params, resetPasswordSuccess, resetPasswordLoading, resetPasswordErrored);
 }

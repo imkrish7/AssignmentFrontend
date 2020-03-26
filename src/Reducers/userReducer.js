@@ -1,5 +1,5 @@
 import { getActionStates, successState, loadingState, errorState } from '../Utils/reduxUtility';
-import { LOGIN, REGISTER, VERIFY,FORGET_PASSWORD_OTP, FORGET_PASSWORD_OTP_VERIFY, FORGET_PASSWORD } from '../Actions/ActionNames';
+import { LOGIN, REGISTER, RESET_PASSWORD, VERIFY,FORGET_PASSWORD_OTP, FORGET_PASSWORD_OTP_VERIFY, FORGET_PASSWORD, RESEND_OTP } from '../Actions/ActionNames';
 
 
 export const loginResponse= (state={}, action)=>{
@@ -81,6 +81,35 @@ export const verifyResponse= (state={}, action)=>{
 		case getActionStates(VERIFY).inProgress:
 			return { ...loadingState, loading: action.isLoading};
 		case getActionStates(VERIFY).failure:
+			return{ ...errorState, error: action.error};
+		default:
+			return state;
+	}
+}
+
+
+export const resendOtpResponse= (state={}, action)=>{
+
+	switch(action.type){
+		case getActionStates(RESEND_OTP).success:
+			return { ...successState, data: action.data};
+		case getActionStates(RESEND_OTP).inProgress:
+			return { ...loadingState, loading: action.isLoading};
+		case getActionStates(RESEND_OTP).failure:
+			return{ ...errorState, error: action.error};
+		default:
+			return state;
+	}
+}
+
+export const resetPasswordResponse= (state={}, action)=>{
+
+	switch(action.type){
+		case getActionStates(RESET_PASSWORD).success:
+			return { ...successState, data: action.data};
+		case getActionStates(RESET_PASSWORD).inProgress:
+			return { ...loadingState, loading: action.isLoading};
+		case getActionStates(RESET_PASSWORD).failure:
 			return{ ...errorState, error: action.error};
 		default:
 			return state;

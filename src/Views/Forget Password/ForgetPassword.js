@@ -49,10 +49,6 @@ class ForgetPassword extends Component{
 		
 	}
 
-	componentWillReceiveProps(nextProps){
-		console.log(nextProps);
-	}
-
 	render(){
 		return <div className={Style.container}>
 				<div className={Style.card}>

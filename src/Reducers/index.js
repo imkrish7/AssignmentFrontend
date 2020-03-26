@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { loginResponse, registerResponse, forgetPasswordOtpResponse, forgetPasswordOtpVerifyResponse, forgetPasswordResponse, verifyResponse } from './userReducer';
+import { loginResponse, registerResponse, resetPasswordResponse,forgetPasswordOtpResponse, forgetPasswordOtpVerifyResponse, forgetPasswordResponse, verifyResponse, resendOtpResponse } from './userReducer';
 
 const rootReducers = combineReducers({
 	loginResponse,
@@ -7,7 +7,9 @@ const rootReducers = combineReducers({
 	forgetPasswordOtpVerifyResponse,
 	forgetPasswordResponse,
 	registerResponse,
-	verifyResponse
+	verifyResponse,
+	resendOtpResponse,
+	resetPasswordResponse
 })
 
 export default rootReducers;

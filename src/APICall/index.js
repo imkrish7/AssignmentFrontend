@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {successState} from '../Utils/reduxUtility';
 
 const defaultUrl = 'http://127.0.0.1:3333';
 let headers = {
-	'Content-Type': 'application/json'
+	'Content-Type': 'application/json',
+	'Authorization': 'Bearer ' + localStorage.getItem('Authorization')
 }
 
 
@@ -31,7 +31,6 @@ export const networkRequest = { post: (dispatch, url, params, successAction, loa
 				const apiUrl = defaultUrl + '/' + url;
 
 				if (dispatch && loadingAction) dispatch(loadingAction(true));
-
 				const reqObj = { method: 'PATCH', url: apiUrl, data: JSON.stringify(params), headers };
 				axios(reqObj)
 					.then(result => {
@@ -43,7 +42,7 @@ export const networkRequest = { post: (dispatch, url, params, successAction, loa
 					})
 					.catch(error => {
 						if (dispatch && errorAction) {
-							dispatch(errorAction(error));
+							dispatch(errorAction(error.response.data));
 						}
 					});
 			} 
